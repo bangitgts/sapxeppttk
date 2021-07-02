@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { routes } from "./routes";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Component } from "react";
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authed: false,
+    };
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  showContent(routes) {
+    var result = [];
+    if (routes.length > 0) {
+      var result = routes.map((route) => {
+        return (
+          <Route path={route.path} exact={route.exact} component={route.main} />
+        );
+      });
+    }
+    return result;
+  }
+
+  render() {
+    // const { authed } = this.state;
+    return (
+      <Router>
+        {" "}
+        {this.showContent(routes)}{" "}
+       
+      </Router>
+    );
+  }
 }
 
 export default App;
