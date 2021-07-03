@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
@@ -32,7 +32,7 @@ class LoginPage extends React.Component {
     });
     var config = {
       method: "post",
-      url: "http://45.77.12.16:5000/account/login",
+      url: "http://localhost:5000/account/login",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -52,12 +52,11 @@ class LoginPage extends React.Component {
         }
       })
       .catch((err) => {
-        if (err.response.data.status === 400) {
           this.setState({
             wrongPassword: true,
           });
           store.addNotification({
-            title: "You entered the wrong account or password!",
+            title: "Wrong account or password!",
             message: "Please check your account again",
             type: "danger",
             insert: "top",
@@ -68,7 +67,7 @@ class LoginPage extends React.Component {
               showIcon: true,
             },
           });
-        }
+        
       });
   }
 
@@ -98,10 +97,10 @@ class LoginPage extends React.Component {
                       <form className="m-t-md" onSubmit={this.handleSubmit}>
                         <div className="form-group">
                           <input
-                            type="email"
+                            type="text"
                             name="email"
                             className="form-control"
-                            placeholder="Nhập email của bạn"
+                            placeholder="Enter your email"
                             onChange={this.handleChange}
                             required
                           />
@@ -111,7 +110,7 @@ class LoginPage extends React.Component {
                             type="password"
                             name="password"
                             className="form-control password"
-                            placeholder="Nhập mật khẩu của bạn"
+                            placeholder="Enter your password"
                             onChange={this.handleChange}
                             required
                           />

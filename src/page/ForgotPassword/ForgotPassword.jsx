@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -217,6 +217,7 @@ class ForgotPassword extends React.Component {
                               required
                             />
                           </div>
+                          <div>
                           <ReCAPTCHA
                             sitekey="6Ld55F0bAAAAAE2JZ9lo1razwPyfUiaMEvBvDbUV"
                             onChange={this.onChangeCaptcha}
@@ -224,7 +225,7 @@ class ForgotPassword extends React.Component {
                             onloadCallback={this.onLoadRecaptcha}
                             onChange={this.verifyCallback}
                           />
-                          ,
+                          </div>
                           <button
                             type="submit"
                             className="btn btn-login btn-block"
