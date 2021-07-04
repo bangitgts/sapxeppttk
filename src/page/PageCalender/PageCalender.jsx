@@ -1,108 +1,17 @@
 import React from "react";
-import { Header } from "../Header";
-import { Link } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
+import { Header } from "../Header";
+import { Calender } from "../Calender";
 const axios = require("axios");
-
-class ShowRoom extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      isSelect: false,
-    };
-    this.onClick = this.onClick.bind(this);
-  }
-  componentDidMount() {
-    let config = {
-      method: "get",
-      url: "http://localhost:5000/room",
-    };
-
-    axios(config)
-      .then(function (response) {
-        return response.data.data;
-      })
-      .then((data) => {
-        this.setState({ data: data });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  onClick(event) {
-    console.log(event);
-    var config = {
-      method: "delete",
-      url: `http://localhost:5000/deleteroom/${event}`,
-      headers: {
-        "auth-token": localStorage.getItem("auth-token"),
-      },
-    };
-    const { data } = this.state;
-    const c = data;
-    const findArr = c.findIndex((el) => el._id === event);
-    c.splice(findArr, 1);
-    this.setState({
-      data: c,
-    });
-
-    axios(config)
-      .then(function (response) {
-        return response;
-      })
-      .then((data) => {
-        store.addNotification({
-          title: "Success!",
-          message: "Delete Successfully",
-          type: "success",
-          insert: "top",
-          container: "top-center",
-          animationIn: ["animate__animated", "animate__fadeIn"],
-          animationOut: ["animate__animated", "animate__fadeOut"],
-          dismiss: {
-            duration: 10000,
-            onScreen: false,
-            showIcon: true,
-          },
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
+const qs = require("qs");
+class PageCalender extends React.Component {
   render() {
-    const { data } = this.state;
-    const dataList = data.map((data, index) => {
-      return (
-        <tr key={index}>
-          <td>{data.nameRoom}</td>
-          <td>{data.capacity}</td>
-          <td className="text-center" style={{ width: "33%" }}>
-            <Link to="/addcourse" className="btn btn-warning">
-              <span className="fa fa-pencil mr-5"></span> Edit
-            </Link>
-            &nbsp;
-            <button
-              onClick={() => this.onClick(data._id)}
-              type="button"
-              className="btn btn-danger"
-            >
-              <span className="fa fa-trash mr-5"></span> Delete
-            </button>
-          </td>
-        </tr>
-      );
-    });
     return (
       <div>
+        <ReactNotification />
         <div className="overlay" />
-
-        {/* Search Form */}
         <main className="page-content content-wrap">
           <Header />
 
@@ -131,10 +40,10 @@ class ShowRoom extends React.Component {
                     <span className="active-page" />
                   </a>
                   <ul className="sub-menu">
-                    <li>
+                    <li className="active">
                       <a href="addroom">Add Room</a>
                     </li>
-                    <li className="active">
+                    <li>
                       <a href="roominformation">Information</a>
                     </li>
                   </ul>
@@ -161,42 +70,25 @@ class ShowRoom extends React.Component {
           {/* Page Sidebar */}
           <div className="page-inner">
             <div className="page-title">
-              <h3 className="breadcrumb-header">Add Room</h3>
+              <h3 className="breadcrumb-header">Schedule</h3>
               <div className="page-breadcrumb">
                 <ol className="breadcrumb breadcrumb-with-header">
                   <li>
                     <a href="index.html">Home</a>
                   </li>
                   <li>
-                    <a href="#">Room</a>
+                    <a href="#">Schedule</a>
                   </li>
-                  <li className="active">Room's Information</li>
+                  
                 </ol>
               </div>
             </div>
             <div id="main-wrapper">
               <div className="row">
                 <div className="col-md-12">
-                  <div className="col-md-12">
-                    <div className="panel panel-white">
-                      <div className="panel-body">
-                        <div
-                          className="col-md-12"
-                          style={{ width: "90%", marginLeft: "46px" }}
-                        >
-                          <div className="table-responsive">
-                            <table className="table table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>Name</th>
-                                  <th>Capacity</th>
-                                </tr>
-                              </thead>
-                              <tbody>{dataList}</tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
+                  <div className="panel panel-white">
+                    <div className="panel-body">
+                      <Calender />
                     </div>
                   </div>
                 </div>
@@ -268,4 +160,4 @@ class ShowRoom extends React.Component {
   }
 }
 
-export { ShowRoom };
+export { PageCalender };

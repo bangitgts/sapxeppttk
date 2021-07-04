@@ -1,10 +1,10 @@
 import React from 'react'
 import { LoginPage } from './page/LoginPage'
 import { ForgotPassword } from './page/ForgotPassword'
-import { AddRoom } from './page/AddRoom/AddRoom'
 import { ShowRoom } from './page/ShowRoom'
 import { AddCourse } from './page/AddCourse'
-
+import { EditRoom } from './page/EditRoom'
+import { PageCalender } from './page/PageCalender'
 const routes = [{
         path: "/login",
         exact: true,
@@ -24,6 +24,18 @@ const routes = [{
         path: "/addcourse",
         exact: false,
         main: () => < AddCourse / > ,
+    },
+    {
+        path: "/editroom/:id",
+        exact: false,
+        main: ({ match }) => < EditRoom match = { match }
+        / > ,
+    },
+    {
+        path: "/calender",
+        exact: false,
+        main: ({ match }) => < PageCalender match = { match }
+        / > ,
     }
 ];
 export { routes };
