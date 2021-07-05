@@ -8,122 +8,127 @@ class Calender extends React.Component {
       {
         lichchan: [
           {
-            _id: "60df30adfd817954dcb80b27",
-            nameCourse: "Khóa 2",
+            _id: "60e1e7bc389ff1e6125d7adf",
+            nameCourse: "1B",
             schedule: "2",
-            during: 2,
-            amount: 19,
-            isCheck: 2,
-            createDate: "7/2/2021, 10:28:45 PM",
-          },
-          {
-            _id: "60df3054fd817954dcb80b22",
-            nameCourse: "Khóa 1",
-            schedule: "2",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/2/2021, 10:27:16 PM",
-          },
-        
-          {
-            _id: "60df3054fd817954dcb80b22",
-            nameCourse: "Khóa 100",
-            schedule: "2",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/2/2021, 10:27:16 PM",
-          }
-        ],
-        lichle: [
-          {
-            _id: "60df3054fd817954dcb81291",
-            nameCourse: "Khóa 7",
-            schedule: "1",
             during: 3,
             amount: 18,
             isCheck: 2,
-            createDate: "7/2/2021, 10:27:16 PM",
+            createDate: "7/4/2021, 11:54:20 PM",
+          },
+          {
+            _id: "60e1e8b97f07f98163188504",
+            nameCourse: "1F",
+            schedule: "1",
+            during: 2,
+            amount: 18,
+            isCheck: 2,
+            createDate: "7/4/2021, 11:54:12 PM",
           },
         ],
-        _id: "60df33e3fd817954dcb80bcf",
-        nameRoom: "Phòng 1",
+        lichle: [
+          {
+            _id: "60e1e7c2389ff1e6125d7ae2",
+            nameCourse: "1C",
+            schedule: "3",
+            during: 2,
+            amount: 18,
+            isCheck: 2,
+            createDate: "7/4/2021, 11:54:26 PM",
+          },
+          { during: 1 },
+          {
+            _id: "60e1e8b97f07f98163188504",
+            nameCourse: "1F",
+            schedule: "1",
+            during: 2,
+            amount: 18,
+            isCheck: 2,
+            createDate: "7/4/2021, 11:54:12 PM",
+          },
+        ],
+        _id: "60e1e8c6389ff1e6125d7b1a",
+        nameRoom: "Phong20",
         capacity: 20,
       },
       {
         lichchan: [
           {
-            _id: "60df30b3fd817954dcb80b2a",
-            nameCourse: "Khóa 3",
-            schedule: "2",
-            during: 2,
-            amount: 22,
-            isCheck: 2,
-            createDate: "7/2/2021, 10:28:51 PM",
-          },
-          {
-            _id: "60df30befd817954dcb80b2f",
-            nameCourse: "Khóa 4",
+            _id: "60e1e7b4389ff1e6125d7adc",
+            nameCourse: "1A",
             schedule: "1",
             during: 2,
-            amount: 25,
+            amount: 18,
             isCheck: 2,
-            createDate: "7/2/2021, 10:29:02 PM",
+            createDate: "7/4/2021, 11:54:12 PM",
+          },
+          {
+            _id: "60e1e7c8389ff1e6125d7ae5",
+            nameCourse: "1D",
+            schedule: "2",
+            during: 3,
+            amount: 18,
+            isCheck: 2,
+            createDate: "7/4/2021, 11:54:32 PM",
           },
         ],
         lichle: [
           {
-            during: 2,
-          },
-          {
-            _id: "60df30befd817954dcb80b2f",
-            nameCourse: "Khóa 4",
+            _id: "60e1e7b4389ff1e6125d7adc",
+            nameCourse: "1A",
             schedule: "1",
             during: 2,
-            amount: 25,
+            amount: 18,
             isCheck: 2,
-            createDate: "7/2/2021, 10:29:02 PM",
+            createDate: "7/4/2021, 11:54:12 PM",
           },
         ],
-        _id: "60df33e3fd817954dcb80bd0",
-        nameRoom: "Phòng 2",
+        _id: "60e1e8c6389ff1e6125d7b1b",
+        nameRoom: "Phong20A",
+        capacity: 20,
+      },
+      {
+        lichchan: [
+          {
+            _id: "60e1e7d0389ff1e6125d7ae8",
+            nameCourse: "21",
+            schedule: "2",
+            during: 3,
+            amount: 24,
+            isCheck: 2,
+            createDate: "7/4/2021, 11:54:40 PM",
+          },
+        ],
+        lichle: [],
+        _id: "60e1e8c6389ff1e6125d7b1c",
+        nameRoom: "Phong30",
         capacity: 30,
       },
       {
         lichchan: [
           {
-            _id: "60df30c9fd817954dcb80b32",
-            nameCourse: "Khóa 6",
+            _id: "60e1e804389ff1e6125d7aee",
+            nameCourse: "31",
             schedule: "1",
-            during: 2,
-            amount: 32,
+            during: 3,
+            amount: 34,
             isCheck: 2,
-            createDate: "7/2/2021, 10:29:13 PM",
+            createDate: "7/4/2021, 11:55:32 PM",
           },
         ],
         lichle: [
           {
-            _id: "60df30c9fd817954dcb80b32",
-            nameCourse: "Khóa 6",
+            _id: "60e1e804389ff1e6125d7aee",
+            nameCourse: "31",
             schedule: "1",
-            during: 2,
-            amount: 32,
+            during: 3,
+            amount: 34,
             isCheck: 2,
-            createDate: "7/2/2021, 10:29:13 PM",
-          },
-          {
-            _id: "askasklaslask",
-            nameCourse: "Khóa 9",
-            schedule: "1",
-            during: 2,
-            amount: 32,
-            isCheck: 2,
-            createDate: "7/2/2021, 10:29:13 PM",
+            createDate: "7/4/2021, 11:55:32 PM",
           },
         ],
-        _id: "60df33e3fd817954dcb80bd1",
-        nameRoom: "Phòng 3",
+        _id: "60e1e8c6389ff1e6125d7b1d",
+        nameRoom: "Phong40",
         capacity: 40,
       },
     ];
@@ -139,12 +144,13 @@ class Calender extends React.Component {
           for (
             let date = i;
             date <
-            (rooms[idroom].lichchan
+            rooms[idroom].lichchan
               .slice(0, lc)
               .reduce(function (accumulator, currentValue) {
                 return accumulator + parseInt(currentValue.during);
-              }, 0) * 7 )+
-              (rooms[idroom].lichchan[lc].during * 7);
+              }, 0) *
+              7 +
+              rooms[idroom].lichchan[lc].during * 7;
             date++
           ) {
             let c = 11;
@@ -155,7 +161,7 @@ class Calender extends React.Component {
                 .reduce(function (accumulator, currentValue) {
                   return accumulator + parseInt(currentValue.during);
                 }, 0) * 7;
-          
+
             const day = new Date();
             day.setDate(c);
             if (
@@ -186,7 +192,6 @@ class Calender extends React.Component {
           }
         }
       }
-
       if (rooms[idroom].lichle.length !== 0) {
         var i = 1;
         for (let lc = 0; lc < rooms[idroom].lichle.length; lc++) {
@@ -211,7 +216,7 @@ class Calender extends React.Component {
                 .reduce(function (accumulator, currentValue) {
                   return accumulator + parseInt(currentValue.during);
                 }, 0) * 7;
-            console.log(i);
+
             const day = new Date();
             day.setDate(c);
             if (
@@ -243,7 +248,7 @@ class Calender extends React.Component {
         }
       }
     }
-    console.log(temp);
+
     return (
       <FullCalendar
         plugins={[dayGridPlugin]}

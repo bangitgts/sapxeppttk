@@ -67,7 +67,6 @@ class LoginPage extends React.Component {
               showIcon: true,
             },
           });
-        
       });
   }
 

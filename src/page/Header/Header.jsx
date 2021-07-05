@@ -42,7 +42,6 @@ class Header extends React.Component {
           <div className="sidebar-pusher"></div>
           <div className="logo-box">
             <a href="index.html" className="logo-text">
-              <span>Trung Tam</span>
             </a>
           </div>
           {/* Logo Box */}
@@ -75,27 +74,13 @@ class Header extends React.Component {
                       </a>
                     </li>
                     <li role="presentation">
-                      <a href="calendar.html">
-                        <i className="icon-calendar" />
-                        Calendar
-                      </a>
-                    </li>
-                    <li role="presentation">
-                      <a href="inbox.html">
-                        <i className="icon-envelope-open" />
-                        Inbox
-                        <span className="badge badge-success pull-right">
-                          4
-                        </span>
+                      <a href="lock-screen.html">
+                        <i className="icon-lock" />
+                        Change Password
                       </a>
                     </li>
                     <li role="presentation" className="divider" />
-                    <li role="presentation">
-                      <a href="lock-screen.html">
-                        <i className="icon-lock" />
-                        Lock screen
-                      </a>
-                    </li>
+                    
                     <li role="presentation">
                       <a href="login.html">
                         <i className="icon-key m-r-xs" />

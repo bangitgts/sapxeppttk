@@ -61,10 +61,11 @@ body {
 
 .navbar-inner {
     background: #D95B35;
+    box-shadow: 0px 1px white;
 }
 
 .navbar .logo-box {
-    background: #D95B35;
+    background: #ffbf34;
     width: 180px;
     height: 64px;
 }
@@ -85,7 +86,7 @@ body {
 }
 
 .topmenu-outer {
-    background: #D95B35;
+    background: #ffbf34;
     height: 64px;
     margin-left: 180px;
 }
@@ -180,6 +181,7 @@ body {
 
 .top-menu .navbar-nav>li>a>.user-name {
     line-height: 64px;
+    color: #ffffff;
 }
 
 .page-sidebar {

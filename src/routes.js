@@ -1,10 +1,11 @@
-import React from 'react'
-import { LoginPage } from './page/LoginPage'
-import { ForgotPassword } from './page/ForgotPassword'
-import { ShowRoom } from './page/ShowRoom'
-import { AddCourse } from './page/AddCourse'
-import { EditRoom } from './page/EditRoom'
-import { PageCalender } from './page/PageCalender'
+import React from "react";
+import { LoginPage } from "./page/LoginPage";
+import { ForgotPassword } from "./page/ForgotPassword";
+import { ShowRoom } from "./page/ShowRoom";
+import { AddCourse } from "./page/AddCourse";
+import { EditRoom } from "./page/EditRoom";
+import { PageCalender } from "./page/PageCalender";
+import { Dashboard } from "./page/Dashboard";
 const routes = [{
         path: "/login",
         exact: true,
@@ -29,13 +30,13 @@ const routes = [{
         path: "/editroom/:id",
         exact: false,
         main: ({ match }) => < EditRoom match = { match }
-        / > ,
+        />,
     },
     {
         path: "/calender",
         exact: false,
         main: ({ match }) => < PageCalender match = { match }
-        / > ,
-    }
+        />,
+    },
 ];
 export { routes };

@@ -1647,7 +1647,7 @@ fieldset[disabled] .btn-danger:hover {
 }
 
 .panel .panel-heading {
-    padding: 20px;
+    /* padding: 20px; */
     overflow: hidden;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -1695,7 +1695,7 @@ fieldset[disabled] .btn-danger:hover {
 }
 
 .panel .panel-heading+.panel-body {
-    padding: 5px 20px 20px
+    /* padding: 5px 20px 20px */
 }
 
 .panel-default .panel-heading {
@@ -1804,7 +1804,7 @@ fieldset[disabled] .btn-danger:hover {
 }
 
 .panel-white {
-    background: #fff
+    background: #fff;
 }
 
 .panel-white .panel-heading .panel-control a {
@@ -4367,7 +4367,11 @@ body.small-sidebar.page-horizontal-bar.page-sidebar-fixed .accordion-menu>li>ul 
 
 .panel-header-stats h4 {
     margin-top: 10px;
-    color: #616567
+    color: #616567;
+    margin-top: 10px;
+    color: #616567;
+    font-size: 16px;
+    font-weight: 200;
 }
 
 .panel-header-stats i {

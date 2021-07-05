@@ -23,6 +23,7 @@ class AddRoom extends React.Component {
       [name]: value,
     });
   }
+
   onSubmit(event) {
     event.preventDefault();
     var data = qs.stringify({
@@ -74,7 +75,7 @@ class AddRoom extends React.Component {
       });
   }
   render() {
-    console.log(this.state);
+
     return (
       <div>
         <ReactNotification />
@@ -155,7 +156,10 @@ class AddRoom extends React.Component {
                 <div className="col-md-12">
                   <div className="panel panel-white">
                     <div className="panel-body">
-                      <form className="form-horizontal" onSubmit={this.onSubmit}>
+                      <form
+                        className="form-horizontal"
+                        onSubmit={this.onSubmit}
+                      >
                         <div className="form-group">
                           <label
                             htmlFor="input-Default"
@@ -199,10 +203,7 @@ class AddRoom extends React.Component {
                             className="col-sm-2 control-label"
                           ></label>
                           <div className="col-sm-10">
-                            <button
-                              type="submit"
-                              className="btn btn-info"
-                            >
+                            <button type="submit" className="btn btn-info">
                               Save
                             </button>
                           </div>
