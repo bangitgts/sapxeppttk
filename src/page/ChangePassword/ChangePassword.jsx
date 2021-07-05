@@ -144,7 +144,7 @@ class ChangePassword extends React.Component {
             <div className="page-sidebar-inner slimscroll">
               <ul className="menu accordion-menu">
                 <li>
-                  <a href="index.html" className="waves-effect waves-button">
+                  <a href="/" className="waves-effect waves-button">
                     <span className="menu-icon icon-home" />
                     <p>Dashboard</p>
                   </a>
@@ -179,6 +179,12 @@ class ChangePassword extends React.Component {
                       <a href="showcourse">Information</a>
                     </li>
                   </ul>
+                </li>
+                <li className="droplink" >
+                  <a href="calender" className="waves-effect waves-button">
+                    <span className="menu-icon icon-calendar" />
+                    <p>Schedule</p>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -247,7 +253,7 @@ class ChangePassword extends React.Component {
                               type="submit"
                               className="btn btn-login btn-block"
                             >
-                              Log in
+                              Change Password
                             </button>
                           </form>
                         </div>
