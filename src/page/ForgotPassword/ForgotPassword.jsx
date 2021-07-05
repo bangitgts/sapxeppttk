@@ -216,7 +216,8 @@ class ForgotPassword extends React.Component {
                           </div>
                           <div>
                           <ReCAPTCHA
-                            sitekey="6Ld55F0bAAAAAE2JZ9lo1razwPyfUiaMEvBvDbUV"
+                            
+                            sitekey="6Lfgg3gbAAAAAKq5cFeAy8nDN3w5QQXAZGjz6gu6"
                             onChange={this.onChangeCaptcha}
                             render="explicit"
                             onloadCallback={this.onLoadRecaptcha}
