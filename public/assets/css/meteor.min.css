@@ -1176,7 +1176,7 @@ fieldset[disabled] .btn-primary:hover {
 
 .btn-success {
     color: #fff;
-    background-color: #D95B35!important;
+    background-color: #f8aa00!important;
     border-radius: 0px;
 }
 
@@ -1229,7 +1229,7 @@ fieldset[disabled] .btn-success:hover {
 
 .btn-info {
     color: #fff;
-    background-color: #D95B35!important;
+    background-color: #f8aa00!important;
     border-color: transparent
 }
 
@@ -1282,7 +1282,7 @@ fieldset[disabled] .btn-info:hover {
 
 .btn-warning {
     color: #fff;
-    background-color: #dfba47!important;
+    background-color: #f8aa00!important;
     border-color: transparent
 }
 

@@ -18,19 +18,13 @@ class Dashboard extends React.Component {
             <div className="page-sidebar-inner slimscroll">
               <ul className="menu accordion-menu">
                 <li className="active open">
-                  <a href="index.html" className="waves-effect waves-button">
+                  <a href="/" className="waves-effect waves-button">
                     <span className="menu-icon icon-home" />
                     <p>Dashboard</p>
                     <span className="active-page" />
                   </a>
                 </li>
-                <li>
-                  <a href="profile.html" className="waves-effect waves-button">
-                    <span className="menu-icon icon-user" />
-                    <p>Profile</p>
-                  </a>
-                </li>
-
+            
                 <li className="droplink">
                   <a href="#" className="waves-effect waves-button">
                     <span className="menu-icon icon-grid" />
@@ -54,15 +48,15 @@ class Dashboard extends React.Component {
                   </a>
                   <ul className="sub-menu">
                     <li>
-                      <a href="404.html">Add Courses</a>
+                      <a href="addcourse">Add Courses</a>
                     </li>
                     <li>
-                      <a href="500.html">Information</a>
+                      <a href="roominformation">Information</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="profile.html" className="waves-effect waves-button">
+                  <a href="calender" className="waves-effect waves-button">
                     <span className="menu-icon icon-calendar" />
                     <p>Schedule</p>
                   </a>
@@ -101,58 +95,6 @@ class Dashboard extends React.Component {
           </div>
           {/* Page Inner */}
         </main>
-        {/* Page Content */}
-        <nav className="cd-nav-container" id="cd-nav">
-          <header>
-            <h3>DEMOS</h3>
-          </header>
-          <div className="col-md-6 demo-block">
-            <a href="../admin1/index.html">
-              <p>
-                Dark
-                <br />
-                Design
-              </p>
-            </a>
-          </div>
-          <div className="col-md-6 demo-block">
-            <a href="../admin2/index.html">
-              <p>
-                Light
-                <br />
-                Design
-              </p>
-            </a>
-          </div>
-          <div className="col-md-6 demo-block demo-selected demo-active">
-            <p>
-              Material
-              <br />
-              Design
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Horizontal
-              <br />
-              (Coming)
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Coming
-              <br />
-              Soon
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Coming
-              <br />
-              Soon
-            </p>
-          </div>
-        </nav>
         <div className="cd-overlay" />
       </div>
     );

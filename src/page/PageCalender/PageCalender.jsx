@@ -20,19 +20,14 @@ class PageCalender extends React.Component {
             <div className="page-sidebar-inner slimscroll">
               <ul className="menu accordion-menu">
                 <li>
-                  <a href="index.html" className="waves-effect waves-button">
+                  <a href="/" className="waves-effect waves-button">
                     <span className="menu-icon icon-home" />
                     <p>Dashboard</p>
                   </a>
                 </li>
-                <li>
-                  <a href="profile.html" className="waves-effect waves-button">
-                    <span className="menu-icon icon-user" />
-                    <p>Profile</p>
-                  </a>
-                </li>
+               
 
-                <li className="droplink active open">
+                <li className="droplink">
                   <a href="#" className="waves-effect waves-button">
                     <span className="menu-icon icon-grid" />
                     <p>Room Manager</p>
@@ -48,7 +43,7 @@ class PageCalender extends React.Component {
                     </li>
                   </ul>
                 </li>
-                <li className="droplink">
+                <li className="droplink ">
                   <a href="#" className="waves-effect waves-button">
                     <span className="menu-icon icon-layers" />
                     <p>Courses</p>
@@ -56,12 +51,18 @@ class PageCalender extends React.Component {
                   </a>
                   <ul className="sub-menu">
                     <li>
-                      <a href="404.html">Add Courses</a>
+                      <a href="addcourse">Add Courses</a>
                     </li>
                     <li>
-                      <a href="500.html">Information</a>
+                      <a href="showcourse">Information</a>
                     </li>
                   </ul>
+                </li>
+                <li className="droplink active open" >
+                  <a href="calender" className="waves-effect waves-button">
+                    <span className="menu-icon icon-calendar" />
+                    <p>Schedule</p>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -74,7 +75,7 @@ class PageCalender extends React.Component {
               <div className="page-breadcrumb">
                 <ol className="breadcrumb breadcrumb-with-header">
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
                     <a href="#">Schedule</a>
@@ -103,57 +104,7 @@ class PageCalender extends React.Component {
           {/* Page Inner */}
         </main>
         {/* Page Content */}
-        <nav className="cd-nav-container" id="cd-nav">
-          <header>
-            <h3>DEMOS</h3>
-          </header>
-          <div className="col-md-6 demo-block">
-            <a href="../admin1/index.html">
-              <p>
-                Dark
-                <br />
-                Design
-              </p>
-            </a>
-          </div>
-          <div className="col-md-6 demo-block">
-            <a href="../admin2/index.html">
-              <p>
-                Light
-                <br />
-                Design
-              </p>
-            </a>
-          </div>
-          <div className="col-md-6 demo-block demo-selected demo-active">
-            <p>
-              Material
-              <br />
-              Design
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Horizontal
-              <br />
-              (Coming)
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Coming
-              <br />
-              Soon
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Coming
-              <br />
-              Soon
-            </p>
-          </div>
-        </nav>
+        
         <div className="cd-overlay" />
       </div>
     );

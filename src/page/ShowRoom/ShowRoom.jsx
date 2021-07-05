@@ -18,7 +18,7 @@ class ShowRoom extends React.Component {
   componentDidMount() {
     let config = {
       method: "get",
-      url: "http://localhost:5000/room",
+      url: "http://itcode.vn:5000/room",
     };
 
     axios(config)
@@ -34,10 +34,9 @@ class ShowRoom extends React.Component {
   }
 
   onClick(event) {
-    console.log(event);
     var config = {
       method: "delete",
-      url: `http://localhost:5000/deleteroom/${event}`,
+      url: `http://itcode.vn:5000/deleteroom/${event}`,
       headers: {
         "auth-token": localStorage.getItem("auth-token"),
       },
@@ -78,14 +77,16 @@ class ShowRoom extends React.Component {
   render() {
     const { data } = this.state;
     const dataList = data.map((data, index) => {
+      const cId  = data._id;
+      const url = "/editroom/" + cId + "/"
       return (
         <tr key={index}>
           <td>{data.nameRoom}</td>
           <td>{data.capacity}</td>
           <td className="text-center" style={{ width: "33%" }}>
-            <Link to="/addcourse" className="btn btn-warning">
-              <span className="fa fa-pencil mr-5"></span> Edit
-            </Link>
+            <a href={url} className="btn btn-warning">
+            <span className="fa fa-pencil mr-5"></span> Edit
+            </a>
             &nbsp;
             <button
               onClick={() => this.onClick(data._id)}
@@ -111,17 +112,12 @@ class ShowRoom extends React.Component {
             <div className="page-sidebar-inner slimscroll">
               <ul className="menu accordion-menu">
                 <li>
-                  <a href="index.html" className="waves-effect waves-button">
+                  <a href="/" className="waves-effect waves-button">
                     <span className="menu-icon icon-home" />
                     <p>Dashboard</p>
                   </a>
                 </li>
-                <li>
-                  <a href="profile.html" className="waves-effect waves-button">
-                    <span className="menu-icon icon-user" />
-                    <p>Profile</p>
-                  </a>
-                </li>
+                
 
                 <li className="droplink active open">
                   <a href="#" className="waves-effect waves-button">
@@ -147,12 +143,18 @@ class ShowRoom extends React.Component {
                   </a>
                   <ul className="sub-menu">
                     <li>
-                      <a href="404.html">Add Courses</a>
+                      <a href="addcourse">Add Courses</a>
                     </li>
                     <li>
-                      <a href="500.html">Information</a>
+                      <a href="showcourse">Information</a>
                     </li>
                   </ul>
+                </li>
+                <li>
+                  <a href="calender" className="waves-effect waves-button">
+                    <span className="menu-icon icon-calendar" />
+                    <p>Schedule</p>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -165,7 +167,7 @@ class ShowRoom extends React.Component {
               <div className="page-breadcrumb">
                 <ol className="breadcrumb breadcrumb-with-header">
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
                     <a href="#">Room</a>

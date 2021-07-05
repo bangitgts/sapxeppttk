@@ -5,6 +5,7 @@ class Header extends React.Component {
     this.state = {
       email: "",
     };
+    this.logOut = this.logOut.bind(this);
   }
   componentDidMount(){
     var axios = require('axios');
@@ -14,7 +15,7 @@ class Header extends React.Component {
     });
     var config = {
       method: 'get',
-      url: 'http://localhost:5000/account',
+      url: 'http://itcode.vn:5000/account',
       headers: { 
         'auth-token': localStorage.getItem('auth-token'),
       },
@@ -34,6 +35,10 @@ class Header extends React.Component {
       console.log(error);
     });
     
+  }
+  logOut() {
+    localStorage.removeItem("auth-token");
+    window.location = "/login";
   }
   render() {
     return (
@@ -67,14 +72,9 @@ class Header extends React.Component {
                     />
                   </a>
                   <ul className="dropdown-menu dropdown-list" role="menu">
+                    
                     <li role="presentation">
-                      <a href="profile.html">
-                        <i className="icon-user" />
-                        Profile
-                      </a>
-                    </li>
-                    <li role="presentation">
-                      <a href="lock-screen.html">
+                      <a href="changepassword">
                         <i className="icon-lock" />
                         Change Password
                       </a>
@@ -82,7 +82,7 @@ class Header extends React.Component {
                     <li role="presentation" className="divider" />
                     
                     <li role="presentation">
-                      <a href="login.html">
+                      <a style={{cursor:"pointer"}} onClick={this.logOut}>
                         <i className="icon-key m-r-xs" />
                         Log out
                       </a>

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Component } from "react";
 import { PrivateRoute } from "./auth/";
 import { Dashboard } from "./page/Dashboard";
+import { AddRoom } from "./page/AddRoom";
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -28,11 +30,18 @@ class App extends Component {
 
     render() {
         // const { authed } = this.state;
-        return <Router > { this.showContent(routes) } <
+        return ( <
+            Router > { " " } { this.showContent(routes) } { " " } <
             PrivateRoute exact authed path = "/"
-        component = { Dashboard }
-        />{" "} < /
-        Router > ;
+            component = { Dashboard }
+            />{" "} <
+            PrivateRoute exact authed path = "/addroom"
+            component = { AddRoom }
+            />{" "}
+
+            <
+            /Router>
+        );
     }
 }
 

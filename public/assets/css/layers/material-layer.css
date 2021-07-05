@@ -60,12 +60,12 @@ body {
 }
 
 .navbar-inner {
-    background: #D95B35;
+    background: #ffbf34;
     box-shadow: 0px 1px white;
 }
 
 .navbar .logo-box {
-    background: #ffbf34;
+    background: #f8aa00;
     width: 180px;
     height: 64px;
 }
@@ -86,7 +86,7 @@ body {
 }
 
 .topmenu-outer {
-    background: #ffbf34;
+    background: #f8aa00;
     height: 64px;
     margin-left: 180px;
 }
@@ -141,7 +141,7 @@ body {
 .menu.accordion-menu>li.active.open>a p,
 .menu.accordion-menu>li.active>a,
 .menu.accordion-menu>li.active.open>a {
-    color: #D95B35;
+    color: #feaf04;
 }
 
 .menu.accordion-menu>li>a.waves-button,
@@ -247,7 +247,7 @@ span.active-page {
 
 .search-form.boxed-layout-search .input-group,
 .search-form {
-    background: #D95B35;
+    background: #ffbf34;
     height: 64px;
 }
 

@@ -1,10 +1,9 @@
 import React from "react";
-import { Header } from "../Header";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
+import { Header } from "../Header";
 const axios = require("axios");
-
 class ChangePassword extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ class ChangePassword extends React.Component {
   }
 
   componentDidMount() {
-    const url = "http://45.77.12.16:4000/account";
+    const url = "http://45.77.12.16:5000/account";
     var config = {
       method: "get",
       url: url,
@@ -37,13 +36,6 @@ class ChangePassword extends React.Component {
       .then((data) => {
         this.setState({
           dataUser: data,
-          image_preview: data.imagePerson,
-          name: data.name,
-          address: data.address,
-          phoneNumber: data.phoneNumber,
-          dateBirth: data.dateBirth,
-          sex: String(data.sex),
-          introduce: data.introduce,
         });
       })
       .catch(function (error) {
@@ -69,7 +61,7 @@ class ChangePassword extends React.Component {
       });
       var config = {
         method: "put",
-        url: "http://45.77.12.16:4000/account/changepassword",
+        url: "http://45.77.12.16:5000/account/changepassword",
         headers: {
           "auth-token": localStorage.getItem("auth-token"),
           "Content-Type": "application/x-www-form-urlencoded",
@@ -86,8 +78,8 @@ class ChangePassword extends React.Component {
             isStatus: true,
           });
           store.addNotification({
-            title: "Thành công!",
-            message: "Bạn đã đổi mật khẩu thành công",
+            title: "Success!",
+            message: "You have successfully changed your password",
             type: "success",
             insert: "top",
             container: "top-center",
@@ -102,8 +94,8 @@ class ChangePassword extends React.Component {
         })
         .catch(function (error) {
           store.addNotification({
-            title: "Nhập lại mật khẩu cũ!",
-            message: "Bạn nhập mật khẩu cũ không chính xác",
+            title: "Re-enter old password!",
+            message: "You entered the old password incorrectly",
             type: "danger",
             insert: "top",
             container: "top-center",
@@ -117,7 +109,7 @@ class ChangePassword extends React.Component {
     } else {
       store.addNotification({
         title: "Warning!",
-        message: "Bạn nhập mật khẩu mới không trùng khớp",
+        message: "You entered a new password that does not match",
         type: "warning",
         insert: "top",
         container: "top-center",
@@ -144,119 +136,135 @@ class ChangePassword extends React.Component {
     return (
       <div>
         <ReactNotification />
-        <Header />
-        <div className="container">
-          <div className="row profile">
-            <div className="col-md-3">
-              <div className="profile-sidebar">
-                {/* SIDEBAR USERPIC */}
-                <div className="profile-userpic">
-                  <img
-                    src={this.state.image_preview}
-                    className="img-responsive"
-                    alt=""
-                  />
-                  <div className="email-profile ">
-                    <i className="fa fa-envelope" />
-                    <span> </span>
-                    {this.state.dataUser.email}
-                  </div>
-                  <div className="name-profile ">
-                    <i className="fa fa-user" />
-                    <span> </span>
-                    {this.state.dataUser.name}
-                  </div>
-                </div>
-                <div className="profile-usermenu">
-                  <ul className="nav">
+        <div className="overlay" />
+        <main className="page-content content-wrap">
+          <Header />
+          {/* Navbar */}
+          <div className="page-sidebar sidebar">
+            <div className="page-sidebar-inner slimscroll">
+              <ul className="menu accordion-menu">
+                <li>
+                  <a href="index.html" className="waves-effect waves-button">
+                    <span className="menu-icon icon-home" />
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li className="droplink">
+                  <a href="#" className="waves-effect waves-button">
+                    <span className="menu-icon icon-grid" />
+                    <p>Room Manager</p>
+                    <span className="arrow" />
+                  </a>
+                  <ul className="sub-menu">
                     <li>
-                      <a href="account">
-                        <i className="glyphicon glyphicon-user" />
-                        Tài Khoản của tôi{" "}
-                      </a>
-                    </li>
-                    <li className="active">
-                      <a href="changepassword">
-                        <i className="glyphicon glyphicon-pencil" />
-                        Đổi mật khẩu{" "}
-                      </a>
+                      <a href="addroom">Add Room</a>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
-                        <i className="glyphicon glyphicon-ok " />
-                        Đơn mua{" "}
-                      </a>
+                      <a href="roominformation">Information</a>
                     </li>
                   </ul>
-                </div>
-                {/* END MENU */}
+                </li>
+                <li className="droplink">
+                  <a href="#" className="waves-effect waves-button">
+                    <span className="menu-icon icon-layers" />
+                    <p>Courses</p>
+                    <span className="arrow" />
+                  </a>
+                  <ul className="sub-menu">
+                    <li>
+                      <a href="addcourse">Add Courses</a>
+                    </li>
+                    <li>
+                      <a href="showcourse">Information</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            {/* Page Sidebar Inner */}
+          </div>
+          {/* Page Sidebar */}
+          <div className="page-inner">
+            <div className="page-title">
+              <h3 className="breadcrumb-header">Change Password</h3>
+              <div className="page-breadcrumb">
+                <ol className="breadcrumb breadcrumb-with-header">
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="account">Account</a>
+                  </li>
+                  <li className="active">Change Password</li>
+                </ol>
               </div>
             </div>
-            <div className="info-background col-md-9">
-              <div id="wrapper">
-                <div className="main-content">
-                  <div className="main-section">
-                    <div className="add-section">
-                      <form onSubmit={this.onSubmit}>
-                        <legend className="text-center">ĐỔI MẬT KHẨU</legend>
-                        <div className="form-group">
-                          <input
-                            type="password"
-                            name="passWord"
-                            placeholder="Nhập mật khẩu cũ"
-                            onChange={this.onChangeText}
-                            required
-                          />
-                          <input
-                            type="password"
-                            name="newPassword"
-                            placeholder="Nhập mật khẩu mới"
-                            onChange={this.onChangeText}
-                            required
-                          />
-                          {this.state.newPassword !== "" ? (
-                            <i
-                              style={{ color: "green" }}
-                              className="fa fa-check"
+            <div id="main-wrapper">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="panel panel-white">
+                    <div className="panel-body">
+                      <div className="login-box">
+                        <div className="m-t-md col-md-12">
+                          <form className="m-t-md" onSubmit={this.onSubmit}>
+                            <h2 className="text-center">Change Password</h2>
+                            <br></br>
+                            <div className="form-group">
+                              <input
+                                className="form-control"
+                                type="password"
+                                name="passWord"
+                                placeholder="Enter old password"
+                                onChange={this.onChangeText}
+                                required
+                              />
+                            </div>
+                            <div className="form-group">
+                              <input
+                                className="form-control"
+                                type="password"
+                                name="newPassword"
+                                placeholder="Enter new password "
+                                onChange={this.onChangeText}
+                                required
+                              />
+                            </div>
+                            <div className="form-group">
+                              
+                              <input
+                                type="password"
+                                className="form-control password"
+                                name="renewPassword"
+                                placeholder="Re-enter old password "
+                                onChange={this.onChangeText}
+                                required
+                              />
+                            
+                            </div>
+
+                            <button
+                              type="submit"
+                              className="btn btn-login btn-block"
                             >
-                              {" "}
-                            </i>
-                          ) : (
-                            ""
-                          )}
-                          <input
-                            type="password"
-                            name="renewPassword"
-                            placeholder="Nhập lại mật khẩu mới"
-                            onChange={this.onChangeText}
-                            required
-                          />
-                          {checkPassword}
-                          {}
-                          <button
-                            type="submit"
-                            className="isdislaybutton btn btn-primary"
-                          >
-                            Submit
-                          </button>
+                              Log in
+                            </button>
+                          </form>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
-                {/* /.main-content */}
               </div>
             </div>
+            {/* Main Wrapper */}
+            <div className="page-footer">
+              <p className="no-s"></p>
+            </div>
           </div>
-        </div>
-
-        {/* thong bao ok */}
-
-        <footer id="footer">
-          <ul class="list-inline text-center">
-            <li>2021 © Chuyên đề thực tế 2</li>
-          </ul>
-        </footer>
+          {/* Page Inner */}
+        </main>
+        <div className="cd-overlay" />
       </div>
     );
   }

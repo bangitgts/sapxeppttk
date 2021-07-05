@@ -5,7 +5,9 @@ import { ShowRoom } from "./page/ShowRoom";
 import { AddCourse } from "./page/AddCourse";
 import { EditRoom } from "./page/EditRoom";
 import { PageCalender } from "./page/PageCalender";
-import { Dashboard } from "./page/Dashboard";
+import { ShowCourse } from "./page/ShowCourse";
+import { ChangePassword } from "./page/ChangePassword";
+
 const routes = [{
         path: "/login",
         exact: true,
@@ -38,5 +40,15 @@ const routes = [{
         main: ({ match }) => < PageCalender match = { match }
         />,
     },
+    {
+        path: "/showcourse",
+        exact: false,
+        main: () => < ShowCourse / > ,
+    },
+    {
+        path: "/changepassword",
+        exact: false,
+        main: () => < ChangePassword / > ,
+    }
 ];
 export { routes };

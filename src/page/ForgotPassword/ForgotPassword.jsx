@@ -74,7 +74,7 @@ class ForgotPassword extends React.Component {
       });
       var config = {
         method: "post",
-        url: "http://45.77.12.16:4000/account/forgotpassword",
+        url: "http://45.77.12.16:5000/account/forgotpassword",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -125,7 +125,7 @@ class ForgotPassword extends React.Component {
       });
     } else {
       const email = this.state.email;
-      const url = "http://45.77.12.16:4000/account/newpassword/";
+      const url = "http://45.77.12.16:5000/accountchange/newpassword/";
       const urlfull = url + email;
       const token = this.state.maxacthuc;
       const newPassword = this.state.repassword;
@@ -134,10 +134,7 @@ class ForgotPassword extends React.Component {
         newPassword: newPassword,
       });
       var config = {
-        params: {
-          email: email,
-        },
-        method: "put",
+        method: "post",
         url: urlfull,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

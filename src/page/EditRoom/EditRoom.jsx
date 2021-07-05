@@ -11,6 +11,7 @@ class EditRoom extends React.Component {
     this.state = {
       nameRoom: "",
       nameRoom1: "",
+      redirect: false
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -18,7 +19,7 @@ class EditRoom extends React.Component {
   componentDidMount() {
     var config = {
       method: "get",
-      url: "http://localhost:5000/room",
+      url: "http://itcode.vn:5000/room",
       headers: {},
     };
 
@@ -27,19 +28,18 @@ class EditRoom extends React.Component {
         return response.data.data
       })
       .then(data=>{
-      
-          for(let items of data){
-              if(items._id === this.props.match.params.id){
-                
-                  this.setState({
-                      nameRoom: items.nameRoom,
-                      nameRoom1: items.nameRoom
-                  })
-              }
-              else{
-                  console.log("xyz")
-              }
+    
+        for(let item of data){
+          const c  = this.props.match.params.id;
+         
+          if(item._id == c){
+            this.setState({
+              nameRoom: item.nameRoom,
+              nameRoom1: item.nameRoom
+            })
           }
+        }
+       
       })
       .catch(function (error) {
         console.log(error);
@@ -57,11 +57,11 @@ class EditRoom extends React.Component {
     event.preventDefault();
     var data = qs.stringify({
       nameRoom: this.state.nameRoom,
-      capacity: parseInt(this.state.capacity),
+   
     });
     var config = {
-      method: "post",
-      url: "http://localhost:5000/addroom",
+      method: "put",
+      url: `http://45.77.12.16:5000/changenameroom/${this.props.match.params.id}`,
       headers: {
         "auth-token": localStorage.getItem("auth-token"),
         "Content-Type": "application/x-www-form-urlencoded",
@@ -73,7 +73,7 @@ class EditRoom extends React.Component {
       .then(function (response) {
         store.addNotification({
           title: "Success!",
-          message: "Successfully added room",
+          message: "Changed",
           type: "success",
           insert: "top",
           container: "top-center",
@@ -85,6 +85,11 @@ class EditRoom extends React.Component {
             showIcon: true,
           },
         });
+      })
+      .then(data => {
+        this.setState({
+          redirect: true,
+        })
       })
       .catch(function (error) {
         store.addNotification({
@@ -104,31 +109,27 @@ class EditRoom extends React.Component {
       });
   }
   render() {
-    
+    if (this.state.redirect) {
+      window.setTimeout(function () {
+        window.location.href = "/roominformation";
+      }, 500);
+    }
     return (
       <div>
         <ReactNotification />
         <div className="overlay" />
         <main className="page-content content-wrap">
           <Header />
-
-          {/* Navbar */}
+          {/* Navbar */} 
           <div className="page-sidebar sidebar">
             <div className="page-sidebar-inner slimscroll">
               <ul className="menu accordion-menu">
                 <li>
-                  <a href="index.html" className="waves-effect waves-button">
+                  <a href="/" className="waves-effect waves-button">
                     <span className="menu-icon icon-home" />
                     <p>Dashboard</p>
                   </a>
                 </li>
-                <li>
-                  <a href="profile.html" className="waves-effect waves-button">
-                    <span className="menu-icon icon-user" />
-                    <p>Profile</p>
-                  </a>
-                </li>
-
                 <li className="droplink active open">
                   <a href="#" className="waves-effect waves-button">
                     <span className="menu-icon icon-grid" />
@@ -137,7 +138,7 @@ class EditRoom extends React.Component {
                     <span className="active-page" />
                   </a>
                   <ul className="sub-menu">
-                    <li className="active">
+                    <li>
                       <a href="addroom">Add Room</a>
                     </li>
                     <li>
@@ -153,10 +154,10 @@ class EditRoom extends React.Component {
                   </a>
                   <ul className="sub-menu">
                     <li>
-                      <a href="404.html">Add Courses</a>
+                      <a href="addcourse">Add Courses</a>
                     </li>
                     <li>
-                      <a href="500.html">Information</a>
+                      <a href="showcourse">Information</a>
                     </li>
                   </ul>
                 </li>
@@ -171,7 +172,7 @@ class EditRoom extends React.Component {
               <div className="page-breadcrumb">
                 <ol className="breadcrumb breadcrumb-with-header">
                   <li>
-                    <a href="index.html">Home</a>
+                    <a href="/.html">Home</a>
                   </li>
                   <li>
                     <a href="#">Room</a>
@@ -238,57 +239,7 @@ class EditRoom extends React.Component {
           {/* Page Inner */}
         </main>
         {/* Page Content */}
-        <nav className="cd-nav-container" id="cd-nav">
-          <header>
-            <h3>DEMOS</h3>
-          </header>
-          <div className="col-md-6 demo-block">
-            <a href="../admin1/index.html">
-              <p>
-                Dark
-                <br />
-                Design
-              </p>
-            </a>
-          </div>
-          <div className="col-md-6 demo-block">
-            <a href="../admin2/index.html">
-              <p>
-                Light
-                <br />
-                Design
-              </p>
-            </a>
-          </div>
-          <div className="col-md-6 demo-block demo-selected demo-active">
-            <p>
-              Material
-              <br />
-              Design
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Horizontal
-              <br />
-              (Coming)
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Coming
-              <br />
-              Soon
-            </p>
-          </div>
-          <div className="col-md-6 demo-block demo-coming-soon">
-            <p>
-              Coming
-              <br />
-              Soon
-            </p>
-          </div>
-        </nav>
+        
         <div className="cd-overlay" />
       </div>
     );

@@ -32,7 +32,7 @@ class LoginPage extends React.Component {
     });
     var config = {
       method: "post",
-      url: "http://localhost:5000/account/login",
+      url: "http://itcode.vn:5000/account/login",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },

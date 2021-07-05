@@ -1,140 +1,38 @@
 import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+const axios = require("axios");
 
 class Calender extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rooms: [],
+    };
+  }
+  componentDidMount() {
+    var config = {
+      method: "get",
+      url: "http://45.77.12.16:5000/room",
+      headers: {},
+    };
+
+    axios(config)
+      .then(function (response) {
+        return response.data.data;
+      })
+      .then((data) =>
+        this.setState({
+          rooms: data,
+        })
+      )
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   render() {
-    let rooms = [
-      {
-        lichchan: [
-          {
-            _id: "60e1e7bc389ff1e6125d7adf",
-            nameCourse: "1B",
-            schedule: "2",
-            during: 3,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:20 PM",
-          },
-          {
-            _id: "60e1e8b97f07f98163188504",
-            nameCourse: "1F",
-            schedule: "1",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:12 PM",
-          },
-        ],
-        lichle: [
-          {
-            _id: "60e1e7c2389ff1e6125d7ae2",
-            nameCourse: "1C",
-            schedule: "3",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:26 PM",
-          },
-          { during: 1 },
-          {
-            _id: "60e1e8b97f07f98163188504",
-            nameCourse: "1F",
-            schedule: "1",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:12 PM",
-          },
-        ],
-        _id: "60e1e8c6389ff1e6125d7b1a",
-        nameRoom: "Phong20",
-        capacity: 20,
-      },
-      {
-        lichchan: [
-          {
-            _id: "60e1e7b4389ff1e6125d7adc",
-            nameCourse: "1A",
-            schedule: "1",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:12 PM",
-          },
-          {
-            _id: "60e1e7c8389ff1e6125d7ae5",
-            nameCourse: "1D",
-            schedule: "2",
-            during: 3,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:32 PM",
-          },
-        ],
-        lichle: [
-          {
-            _id: "60e1e7b4389ff1e6125d7adc",
-            nameCourse: "1A",
-            schedule: "1",
-            during: 2,
-            amount: 18,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:12 PM",
-          },
-        ],
-        _id: "60e1e8c6389ff1e6125d7b1b",
-        nameRoom: "Phong20A",
-        capacity: 20,
-      },
-      {
-        lichchan: [
-          {
-            _id: "60e1e7d0389ff1e6125d7ae8",
-            nameCourse: "21",
-            schedule: "2",
-            during: 3,
-            amount: 24,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:54:40 PM",
-          },
-        ],
-        lichle: [],
-        _id: "60e1e8c6389ff1e6125d7b1c",
-        nameRoom: "Phong30",
-        capacity: 30,
-      },
-      {
-        lichchan: [
-          {
-            _id: "60e1e804389ff1e6125d7aee",
-            nameCourse: "31",
-            schedule: "1",
-            during: 3,
-            amount: 34,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:55:32 PM",
-          },
-        ],
-        lichle: [
-          {
-            _id: "60e1e804389ff1e6125d7aee",
-            nameCourse: "31",
-            schedule: "1",
-            during: 3,
-            amount: 34,
-            isCheck: 2,
-            createDate: "7/4/2021, 11:55:32 PM",
-          },
-        ],
-        _id: "60e1e8c6389ff1e6125d7b1d",
-        nameRoom: "Phong40",
-        capacity: 40,
-      },
-    ];
-
+    const { rooms } = this.state;
     let temp = [];
-
     for (let idroom = 0; idroom < rooms.length; idroom++) {
       // for duyet room
       if (rooms[idroom].lichchan.length !== 0) {
