@@ -12,8 +12,10 @@ class ShowCourse extends React.Component {
     this.state = {
       data: [],
       isSelect: false,
+      redirect: false
     };
     this.onClick = this.onClick.bind(this);
+    this.lenLich = this.lenLich.bind(this);
   }
   componentDidMount() {
     let config = {
@@ -74,11 +76,51 @@ class ShowCourse extends React.Component {
       });
   }
 
+  lenLich() {
+    var config = {
+      method: "post",
+      url: "http://45.77.12.16:5000/sapxepkhoahoc",
+      headers: {},
+    };
+
+    axios(config)
+      .then(function (response) {
+        return response.data;
+      })
+      .then(data => {
+        this.setState({
+          redirect: true
+        })
+        store.addNotification({
+          title: "Success!",
+          message: "Scheduled",
+          type: "success",
+          insert: "top",
+          container: "top-center",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 10000,
+            onScreen: false,
+            showIcon: true,
+          },
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
+    if (this.state.redirect) {
+      window.setTimeout(function () {
+        window.location.href = "/showcourse";
+      }, 500);
+    }
     const { data } = this.state;
     const dataList = data.map((data, index) => {
       const cId = data._id;
-      const url = "/editroom/" + cId + "/";
+      const url = "/editcourse/" + cId + "/";
       return (
         <tr key={index}>
           <td className="text-center">{data.nameCourse}</td>
@@ -245,7 +287,7 @@ class ShowCourse extends React.Component {
                     <p>Dashboard</p>
                   </a>
                 </li>
-               
+
                 <li className="droplink">
                   <a href="#" className="waves-effect waves-button">
                     <span className="menu-icon icon-grid" />
@@ -293,7 +335,6 @@ class ShowCourse extends React.Component {
               <h3 className="breadcrumb-header">Show Course</h3>
               <div className="page-breadcrumb">
                 <ol className="breadcrumb breadcrumb-with-header">
-                  
                   <li>
                     <a href="#">Course</a>
                   </li>
@@ -364,6 +405,13 @@ class ShowCourse extends React.Component {
                               </thead>
                               <tbody>{dataList}</tbody>
                             </table>
+                            <button
+                              type="submit"
+                              className="btn btn-login btn-block"
+                              onClick={this.lenLich}
+                            >
+                              Click to schedule
+                            </button>
                           </div>
                         </div>
                       </div>
